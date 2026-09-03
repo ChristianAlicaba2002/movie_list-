@@ -1,11 +1,11 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
 
-import { HapticTab } from '@/components/haptic-tab';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { BlurView } from 'expo-blur';
 import { Colors } from '@/constants/theme';
+import { FavoritesProvider } from '@/app/data';
 
 
 export default function TabLayout() {
@@ -14,6 +14,7 @@ export default function TabLayout() {
   const scheme: 'light' | 'dark' = colorScheme === 'dark' ? 'dark' : 'light';
 
   return (
+    <FavoritesProvider>
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[scheme].tint,
@@ -67,5 +68,6 @@ export default function TabLayout() {
         }}
       />
     </Tabs>
+    </FavoritesProvider>
   );
 }
