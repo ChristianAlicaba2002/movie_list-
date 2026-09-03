@@ -1,20 +1,12 @@
-import React, { useState } from 'react'
-import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity } from 'react-native'
+import React from 'react'
+import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native'
 import { Ionicons, FontAwesome } from '@expo/vector-icons'
 import { BlurView } from 'expo-blur'
-import { movies } from '@/app/data'
+import { movies, useFavorites } from '@/app/data'
 import { styles } from '../styles/home'
 
 export default function Index() {
-  const [favorites, setFavorites] = useState<string[]>([] as string[])
-
-  const toggleFavorite = (id: string) => {
-    if (favorites.includes(id)) {
-      setFavorites(favorites.filter(fav => fav !== id))
-    } else {
-      setFavorites([...favorites, id])
-    }
-  }
+  const { isFavorite, toggleFavorite } = useFavorites()
 
   return (
     <View style={styles.container}>
@@ -47,9 +39,9 @@ export default function Index() {
               <View style={styles.actions}>
                 <TouchableOpacity onPress={() => toggleFavorite(item.id)}>
                   <Ionicons
-                    name={favorites.includes(item.id) ? "star" : "star-outline"}
+                    name={isFavorite(item.id) ? "star" : "star-outline"}
                     size={20}
-                    color={favorites.includes(item.id) ? "gold" : "white"}
+                    color={isFavorite(item.id) ? "gold" : "white"}
                   />
                 </TouchableOpacity>
                 <TouchableOpacity>
