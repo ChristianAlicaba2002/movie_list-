@@ -47,10 +47,21 @@ movie_list/
 - npm
 - [Expo Go](https://expo.dev/go) on a physical device, or Android Studio / Xcode for emulators
 
+### Clone project
+Using HTTPS
+```bash
+https://github.com/ChristianAlicaba2002/movie_list-.git
+```
+
+Using SSH
+```bash
+git@github.com:ChristianAlicaba2002/movie_list-.git
+```
+
 ### Installation
 
 ```bash
-cd movie_list
+cd movie_list-
 npm install
 ```
 
