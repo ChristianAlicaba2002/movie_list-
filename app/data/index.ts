@@ -1,4 +1,6 @@
-interface Movie {
+import React, { createContext, useCallback, useContext, useMemo, useState } from 'react';
+
+export interface Movie {
     id: string;
     title: string;
     director: string;
@@ -99,4 +101,48 @@ export const movies: Movie[] = [
         genre: "Fantasy, Adventure",
         image: "https://m.media-amazon.com/images/I/51Qvs9i5a%2BL._AC_.jpg"
     },
-]
+];
+
+interface FavoritesContextValue {
+    favoriteIds: string[];
+    favoriteMovies: Movie[];
+    isFavorite: (id: string) => boolean;
+    toggleFavorite: (id: string) => void;
+}
+
+const FavoritesContext = createContext<FavoritesContextValue | null>(null);
+
+export function FavoritesProvider({ children }: { children: React.ReactNode }) {
+    const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
+
+    const toggleFavorite = useCallback((id: string) => {
+        setFavoriteIds((prev) =>
+            prev.includes(id) ? prev.filter((fav) => fav !== id) : [...prev, id]
+        );
+    }, []);
+
+    const isFavorite = useCallback(
+        (id: string) => favoriteIds.includes(id),
+        [favoriteIds]
+    );
+
+    const favoriteMovies = useMemo(
+        () => movies.filter((movie) => favoriteIds.includes(movie.id)),
+        [favoriteIds]
+    );
+
+    const value = useMemo(
+        () => ({ favoriteIds, favoriteMovies, isFavorite, toggleFavorite }),
+        [favoriteIds, favoriteMovies, isFavorite, toggleFavorite]
+    );
+
+    return React.createElement(FavoritesContext.Provider, { value }, children);
+}
+
+export function useFavorites() {
+    const context = useContext(FavoritesContext);
+    if (!context) {
+        throw new Error('useFavorites must be used within a FavoritesProvider');
+    }
+    return context;
+}
