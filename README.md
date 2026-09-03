@@ -1,4 +1,4 @@
-# Sul@s0k List
+# Aura Movie List
 
 A cross-platform mobile app for browsing movies, saving favorites, and managing a user profile. Built with **Expo** and **React Native** for the MDEV preliminary project.
 
