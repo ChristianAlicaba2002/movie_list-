@@ -1,50 +1,92 @@
-# Welcome to your Expo app 👋
+# Sul@s0k List
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A cross-platform mobile app for browsing movies, saving favorites, and managing a user profile. Built with **Expo** and **React Native** for the MDEV preliminary project.
 
-## Get started
+## Features
 
-1. Install dependencies
+- **Home** — Scrollable movie catalog with poster images, director, duration, cast, and genre details
+- **Favorites** — Dedicated tab for saved movies (in progress)
+- **Profile** — User info, watch stats, and customizable avatar via the device gallery
+- **Modern UI** — Frosted-glass cards and tab bar using `expo-blur`, with light/dark mode support
 
-   ```bash
-   npm install
-   ```
+## Tech Stack
 
-2. Start the app
+| Category | Tools |
+|----------|-------|
+| Framework | [Expo](https://expo.dev) 57, [React Native](https://reactnative.dev) 0.86 |
+| Language | TypeScript |
+| Navigation | [Expo Router](https://docs.expo.dev/router/introduction/) (file-based routing) |
+| UI | `@expo/vector-icons`, `expo-blur`, `expo-image` |
+| Media | `expo-image-picker` |
 
-   ```bash
-   npx expo start
-   ```
+## Project Structure
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+movie_list/
+├── app/
+│   ├── (tabs)/
+│   │   ├── index.tsx       # Home — movie list
+│   │   ├── favorites.tsx   # Favorites screen
+│   │   ├── profile.tsx     # Profile screen
+│   │   └── _layout.tsx     # Tab navigation
+│   ├── data/
+│   │   ├── index.ts        # Movie data
+│   │   └── profile.ts      # User profile data
+│   ├── styles/             # Screen-specific styles
+│   └── _layout.tsx         # Root layout
+├── components/             # Reusable UI components
+├── constants/              # Theme colors and fonts
+└── hooks/                  # Custom React hooks
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Getting Started
 
-## Learn more
+### Prerequisites
 
-To learn more about developing your project with Expo, look at the following resources:
+- [Node.js](https://nodejs.org/) (LTS recommended)
+- npm
+- [Expo Go](https://expo.dev/go) on a physical device, or Android Studio / Xcode for emulators
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Installation
 
-## Join the community
+```bash
+cd movie_list
+npm install
+```
 
-Join our community of developers creating universal apps.
+### Run the App
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+npx expo start
+```
+
+Then choose how to open the app from the Expo dev tools:
+
+- Press `a` for Android emulator
+- Press `i` for iOS simulator
+- Scan the QR code with Expo Go on your phone
+
+### Home
+
+Displays a list of movies from local data. Each card shows the poster, title, director, runtime, cast, and genre. Tap the star icon to toggle a movie as a favorite, or the play icon to indicate playback (UI placeholder).
+
+### Favorites
+
+Placeholder screen for movies marked as favorites. Favorites are currently stored in local component state on the Home screen.
+
+### Profile
+
+Shows user details (name, email, bio), activity stats (movies watched, favorites, reviews), and action buttons for Edit Profile, Settings, and Logout. Tap the avatar to pick a new profile photo from the gallery.
+
+## Data
+
+Movie and profile data are stored locally in `app/data/` as TypeScript arrays. The catalog includes 10 films such as *Inception*, *The Matrix*, and *Interstellar*.
+
+## Author
+
+**Christian Dave Alicaba**  
+christiandave120702@gmail.com
+
+## License
+
+Private — for academic use only.
