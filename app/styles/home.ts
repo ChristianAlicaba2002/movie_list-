@@ -1,56 +1,224 @@
-import { StyleSheet } from "react-native"
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#000',
-      paddingTop: 50,
-      paddingHorizontal: 10,
-    },
-    headerBar: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-      marginBottom: 20,
-    },
-    header: {
-      fontSize: 26,
-      fontWeight: 'bold',
-      color: '#fff',
-      marginLeft: 10,
-    },
-    card: {
-      flexDirection: 'row',
-      marginBottom: 15,
-      borderRadius: 15,
-      overflow: 'hidden',
-      backgroundColor: 'rgba(255,255,255,0.05)',
-    },
-    image: {
-      width: 100,
-      height: 150,
-      borderTopLeftRadius: 15,
-      borderBottomLeftRadius: 15,
-    },
-    info: {
-      flex: 1,
-      padding: 10,
-    },
-    title: {
-      fontSize: 20,
-      fontWeight: 'bold',
-      color: '#fff',
-      marginBottom: 5,
-    },
-    details: {
-      color: '#ccc',
-      fontSize: 14,
-      marginBottom: 3,
-    },
-    actions: {
-      flexDirection: 'row',
-      marginTop: 10,
-      gap: 15,
-    },
-  })
-  
+  container: {
+    flex: 1,
+    backgroundColor: '#000',
+  },
+  backgroundOrb: {
+    position: 'absolute',
+    borderRadius: 999,
+    opacity: 0.3,
+  },
+  orbBlue: {
+    width: 200,
+    height: 200,
+    backgroundColor: '#1e90ff',
+    top: -50,
+    left: -70,
+  },
+  orbGold: {
+    width: 160,
+    height: 160,
+    backgroundColor: '#ffd700',
+    top: 120,
+    right: -50,
+  },
+  orbPurple: {
+    width: 120,
+    height: 120,
+    backgroundColor: '#9b59b6',
+    bottom: 200,
+    left: -40,
+  },
+  listContent: {
+    paddingTop: 50,
+    paddingHorizontal: 16,
+    paddingBottom: 120,
+  },
+  headerBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 8,
+  },
+  header: {
+    fontSize: 26,
+    fontWeight: 'bold',
+    color: '#fff',
+    marginLeft: 10,
+  },
+  subtitle: {
+    textAlign: 'center',
+    color: '#888',
+    fontSize: 14,
+    marginBottom: 16,
+  },
+  statsStrip: {
+    flexDirection: 'row',
+    gap: 10,
+    marginBottom: 20,
+  },
+  statPill: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    paddingVertical: 10,
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.08)',
+    backgroundColor: 'rgba(255, 255, 255, 0.04)',
+    overflow: 'hidden',
+  },
+  statPillText: {
+    color: '#ccc',
+    fontSize: 13,
+    fontWeight: '600',
+  },
+  card: {
+    flexDirection: 'row',
+    marginBottom: 14,
+    borderRadius: 20,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.08)',
+    backgroundColor: 'rgba(255, 255, 255, 0.04)',
+  },
+  cardFavorited: {
+    borderColor: 'rgba(255, 215, 0, 0.35)',
+  },
+  posterWrap: {
+    position: 'relative',
+  },
+  image: {
+    width: 110,
+    height: 165,
+  },
+  posterOverlay: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 50,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  rankBadge: {
+    position: 'absolute',
+    top: 8,
+    left: 8,
+    backgroundColor: 'rgba(0, 0, 0, 0.65)',
+    borderRadius: 8,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.15)',
+  },
+  rankText: {
+    color: '#fff',
+    fontSize: 11,
+    fontWeight: '700',
+  },
+  info: {
+    flex: 1,
+    padding: 12,
+    justifyContent: 'space-between',
+  },
+  title: {
+    fontSize: 17,
+    fontWeight: 'bold',
+    color: '#fff',
+    marginBottom: 4,
+  },
+  director: {
+    color: '#1e90ff',
+    fontSize: 13,
+    fontWeight: '500',
+    marginBottom: 8,
+  },
+  metaRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginBottom: 8,
+  },
+  metaChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 10,
+  },
+  metaText: {
+    color: '#aaa',
+    fontSize: 11,
+  },
+  cast: {
+    color: '#777',
+    fontSize: 12,
+    lineHeight: 16,
+    marginBottom: 10,
+  },
+  tagRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
+    marginBottom: 10,
+  },
+  genreTag: {
+    backgroundColor: 'rgba(30, 144, 255, 0.12)',
+    borderWidth: 1,
+    borderColor: 'rgba(30, 144, 255, 0.25)',
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 10,
+  },
+  genreTagText: {
+    color: '#6eb5ff',
+    fontSize: 10,
+    fontWeight: '600',
+  },
+  actions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+  },
+  actionBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    paddingHorizontal: 12,
+    paddingVertical: 7,
+    borderRadius: 12,
+  },
+  favoriteBtn: {
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.1)',
+  },
+  favoriteBtnActive: {
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    borderColor: 'rgba(255, 215, 0, 0.4)',
+  },
+  playBtn: {
+    backgroundColor: 'rgba(30, 144, 255, 0.2)',
+    borderWidth: 1,
+    borderColor: 'rgba(30, 144, 255, 0.35)',
+  },
+  actionLabel: {
+    fontSize: 12,
+    fontWeight: '600',
+  },
+  favoriteLabel: {
+    color: '#ccc',
+  },
+  favoriteLabelActive: {
+    color: 'gold',
+  },
+  playLabel: {
+    color: '#6eb5ff',
+  },
+});
