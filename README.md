@@ -90,3 +90,8 @@ christiandave120702@gmail.com
 ## License
 
 Private — for academic use only.
+
+## Demo App
+https://github.com/user-attachments/assets/dca46e27-3e61-4542-bb03-037ac6c22a4e
+
+
